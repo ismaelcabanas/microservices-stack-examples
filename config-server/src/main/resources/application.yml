@@ -5,7 +5,7 @@ logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'INFO'
+    org.springframework.cloud: 'DEBUG'
     cabanas.garcia.ismael: 'DEBUG'
 
 spring:
@@ -13,11 +13,11 @@ spring:
     name: config-server  # Service registers under this name
   profiles:
     active: ${SPRING_PROFILES_ACTIVE}
-  #rabbitmq:
-  #  host: docker.local
-  #  port: 5672
-  #  username: guest
-  #  password: guest
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
 
 ---
 spring:
