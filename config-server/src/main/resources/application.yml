@@ -11,19 +11,14 @@ logging:
 spring:
   application:
     name: config-server  # Service registers under this name
-  #profiles:
-  #  active: ${SPRING_PROFILES_ACTIVE}
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
   #rabbitmq:
   #  host: docker.local
   #  port: 5672
   #  username: guest
   #  password: guest
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/ismaelcabanas/config-repo
-          basedir: target/config
+
 ---
 spring:
   profiles: github
@@ -31,7 +26,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/atSistemas/cygnus-config
+          uri: https://github.com/ismaelcabanas/config-repo
+          basedir: target/config
 
 ---
 spring:
@@ -40,7 +36,7 @@ spring:
     config:
       server:
         native:
-          searchLocations: file:///D:/development/cygnus-config
+          searchLocations: file:///${HOME}/development/config-repo
           failOnError : false
 
 ---
@@ -51,4 +47,5 @@ spring:
       server:
         git:
 #         uri: file:///${HOME}/cygnus-config
-         uri: file:///D:/development/cygnus-config
+         uri: file:///${HOME}/development/config-repo
+         basedir: target/config
