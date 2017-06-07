@@ -28,6 +28,9 @@ spring:
         git:
           uri: https://github.com/ismaelcabanas/config-repo
           basedir: target/config
+        monitor:
+          github:
+            enabled: true
 
 ---
 spring:
