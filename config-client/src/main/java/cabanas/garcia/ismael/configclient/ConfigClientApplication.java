@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ConfigClientApplication {
 
     public static void main(String[] args){
+        // this property sets a pretty output in actuator metrics
+        System.setProperty("spring.jackson.serialization.INDENT_OUTPUT", "true");
         SpringApplication.run(ConfigClientApplication.class, args);
     }
 }
