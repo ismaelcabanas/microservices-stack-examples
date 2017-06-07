@@ -1,6 +1,12 @@
 server:
   port: 8085
 
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    org.springframework.cloud: 'DEBUG'
+    cabanas.garcia.ismael: 'DEBUG'
+
 ---
 spring:
   profiles: develop
