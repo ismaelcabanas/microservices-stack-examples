@@ -1,0 +1,15 @@
+server:
+  port: ${PORT:8081}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    cabanas.garcia.ismael: 'DEBUG'
+
+spring:
+  application:
+    name: ms-reverse  # Service registers under this name
+
+---
+spring:
+  profiles: dev
