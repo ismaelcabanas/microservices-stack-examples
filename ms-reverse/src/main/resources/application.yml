@@ -9,6 +9,8 @@ logging:
 spring:
   application:
     name: ms-reverse  # Service registers under this name
+  profiles:
+    active: dev
 
 ---
 spring:
