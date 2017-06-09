@@ -19,10 +19,10 @@ spring:
     config:
       failFast: true # Falla el arranque si no se encuentra disponible el servidor de configuración centralizada
       uri: ${CONFIG_SERVER_ENDPOINT}
-      # Cuando se arranca todo en un entorno Docker, los microservicios y eureka-server dependen de que el servidor de
+      # Cuando se arranca en un entorno Docker, los microservicios y eureka-server dependen de que el servidor de
       # configuración centralizada esté disponible (failFast=true), por lo que se establece un mecanismo de intentos
       # para no arrancar la aplicación hasta que esté disponible el servidor de configuración
       retry:
         multiplier: ${CONFIG_RETRY_MULTIPLIER:1.5}
-        maxInterval: ${CONFIG_RETRY_MAXINTERVAL:20000}
-        maxAttempts: ${CONFIG_RETRY_MAXATTEMPTS:10}
+        maxInterval: ${CONFIG_RETRY_MAX_INTERVAL:20000}
+        maxAttempts: ${CONFIG_RETRY_MAX_ATTEMPTS:10}
