@@ -2,6 +2,7 @@ package cabanas.garcia.ismael.msreverse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -12,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
         "cabanas.garcia.ismael.msreverse.framework.controller"
 })
 @EnableSwagger2
+@EnableDiscoveryClient
 public class Application {
     public static void main(String[] args){
         // this property sets a pretty output in actuator metrics
