@@ -1,0 +1,23 @@
+#Configuration for failfast=false
+
+server:
+  port: ${PORT:3333}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'INFO'
+    cabanas.garcia.ismael: 'DEBUG'
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+ms:
+  reverse:
+    name: ms-reverse
+    endpoint: http://${ms.reverse.name}/reverse/
