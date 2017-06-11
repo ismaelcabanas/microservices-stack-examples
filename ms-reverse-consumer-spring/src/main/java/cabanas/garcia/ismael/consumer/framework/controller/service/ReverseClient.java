@@ -2,6 +2,7 @@ package cabanas.garcia.ismael.consumer.framework.controller.service;
 
 import cabanas.garcia.ismael.consumer.framework.controller.dto.ReverseRequestDTO;
 import cabanas.garcia.ismael.consumer.framework.controller.dto.ReverseResponseDTO;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,19 @@ public class ReverseClient {
 
     private String endpoint;
 
+    @HystrixCommand(fallbackMethod="retrieveFallbackReverse")
     public ReverseResponseDTO reverse(ReverseRequestDTO reverseRequest){
 
         LOGGER.debug("Endpoint {}", endpoint);
 
         return restTemplate.postForObject(endpoint, reverseRequest, ReverseResponseDTO.class);
+
+    }
+
+    public ReverseResponseDTO retrieveFallbackReverse(ReverseRequestDTO reverseRequest){
+        LOGGER.debug("Recovering fallback method...");
+
+        return ReverseResponseDTO.Builder.builder().withStringReversed("Dummy").build();
 
     }
 

@@ -15,7 +15,7 @@ public class ReverseResponseDTO {
         private Builder() {
         }
 
-        public static Builder getBuilder() {
+        public static Builder builder() {
             return new Builder();
         }
 

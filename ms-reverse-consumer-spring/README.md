@@ -71,5 +71,27 @@ utilizar el nombre del microservicio que se registró en Eureka. Por ello,
 es conveniente establecer en el fichero de configuración de la aplicación
 el endpoint con el nombre del servicio que se usará como URI en el RestTemplate.
 
+## Circuit Breaker
 
+Un mecanismo de Circuit Breaker lo usamos cuando no nos interesa propagar
+en cascada un problema que se produce al invocar a otro servicio, de forma
+que, cuando se produce ese problema damos una solución alternativa en lugar
+de proporcionar un error.
+
+En este caso, se implementa el Circuit Breaker con la librería Hyxtrix de Netflix, y
+para ello basta con
+
+1. Añadir la dependencia
+
+`<dependency>
+    <groupId>org.springframework.cloud</groupId>
+ 	<artifactId>spring-cloud-starter-hystrix</artifactId>
+ </dependency>`
+
+2. Anotar la clase principal Spring Boot con **@EnableCircuitBreaker**
+
+3. En el método donde realizamos la llamada al servicio que puede dar el problema
+lo anotamos con **@HystrixCommand(fallbackMethod="retrieveService")**
+
+4. Definimos el método **retrieveService()** para dar una respuesta adecuada.
 
