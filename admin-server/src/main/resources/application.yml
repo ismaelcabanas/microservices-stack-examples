@@ -1,0 +1,18 @@
+server:
+  port: ${ADMIN_SERVER_PORT:9999}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    org.springframework.cloud: 'DEBUG'
+    cabanas.garcia.ismael: 'DEBUG'
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+management:
+  security:
+    enabled: false
