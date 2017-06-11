@@ -19,7 +19,7 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("ms-reverse-consumeReverse-spring")
                 .select()
-                .apis(basePackage("cabanas.garcia.ismael.consumeReverse.framework.controller"))
+                .apis(basePackage("cabanas.garcia.ismael.consumer.framework.controller"))
                 .build()
                 .apiInfo(apiInfo());
     }
