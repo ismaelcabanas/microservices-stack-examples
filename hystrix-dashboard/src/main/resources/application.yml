@@ -1,0 +1,30 @@
+#Configuration for failfast=false
+
+info:
+  component: Hystrix Dashboard
+
+# HTTP Server
+server:
+  port: ${HYSTRIX_DASHBOARD_PORT:9000}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    cabanas.garcia.ismael: 'DEBUG'
+
+management:
+  security:
+    enabled: false
+
+#turbine:
+#  appConfig: ms-reverse, ms-reverse-consumer-spring
+#  clusterNameExpression: new String("default")
+#  combineHostPort: true
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
