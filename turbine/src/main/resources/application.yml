@@ -1,0 +1,30 @@
+#Configuration for failfast=false
+
+info:
+  component: Turbine
+
+# HTTP Server
+server:
+  port: ${TURBINE_PORT:9898}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    cabanas.garcia.ismael: 'DEBUG'
+
+management:
+  security:
+    enabled: false
+
+turbine:
+  appConfig: ms-reverse, ms-reverse-consumer-spring  # what apps turbine will monitor
+  clusterNameExpression: new String("default")  # default cluster
+  combineHostPort: true
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
